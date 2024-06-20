@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HorarioMAUI.Views.HorarioView"
+             Background="White"
+             Shell.BackgroundColor="#F9FF9C"
+             xmlns:viremodels="clr-namespace:HorarioMAUI.ViewModels"
+             xmlns:views="clr-namespace:HorarioMAUI.Views"
+             xmlns:models="clr-namespace:HorarioMAUI.Models"
+             Shell.TitleColor="#222020"
+             x:Name="PaginaPrincipal"
+             Title="Horario"
+             >
+   
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Text=" + Clase" Command="{Binding VerAgregarClaseCommand}" ></ToolbarItem> 
+        <ToolbarItem Text="+ Actividad" Command="{Binding VerAgregarActividadCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout>
+            
+            <VerticalStackLayout Margin="10">
+                <Border Stroke="Black">
+                    <Picker HorizontalTextAlignment="Center" ItemsSource="{Binding ListaDias}" SelectedItem="{Binding Dias}" Background="#FDFDF0" TextColor="Black"></Picker>
+                </Border>
+
+            </VerticalStackLayout>
+            <CollectionView ItemsSource="{Binding Notas}" Background="White">
+                <CollectionView.ItemTemplate>
+                <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Command="{Binding Source= {x:Reference PaginaPrincipal}, Path= BindingContext.VerEditarCommand}" CommandParameter="{Binding .}" BackgroundColor="White" IconImageSource="editar.png"></SwipeItem>
+                                    <SwipeItem Command="{Binding Source= {x:Reference PaginaPrincipal}, Path= BindingContext.VerEliminarCommand}" CommandParameter="{Binding .}" BackgroundColor="White" IconImageSource="trash.png"></SwipeItem>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                                <views:ClaseView></views:ClaseView>
+                        </SwipeView>
+                    </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>

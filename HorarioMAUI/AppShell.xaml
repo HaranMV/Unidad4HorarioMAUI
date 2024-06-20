@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="HorarioMAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:HorarioMAUI"
+    xmlns:views="clr-namespace:HorarioMAUI.Views"
+    xmlns:viewmodels="clr-namespace:HorarioMAUI.ViewModels"
+    Shell.FlyoutBehavior="Disabled"
+    Title="HorarioMAUI">
+
+    <Shell.BindingContext>
+        <viewmodels:HorarioViewModel></viewmodels:HorarioViewModel>
+    </Shell.BindingContext>
+
+
+    <ShellContent
+     Title="Horario"
+     ContentTemplate="{DataTemplate views:HorarioView}"
+     Route="Horario" />
+
+    <ShellContent
+    Title="Eliminar"
+    ContentTemplate="{DataTemplate views:EliminarClaseView}"
+    Route="EliminarClase"/>
+
+    <ShellContent
+    Title="Eliminar"
+    ContentTemplate="{DataTemplate views:EliminarActividadView}"
+    Route="EliminarActividad"/>
+
+
+    <ShellContent
+        Title="Editar"
+        ContentTemplate="{DataTemplate views:EditarClaseView}"
+        Route="EditarClase"/>
+
+    <ShellContent
+     Title="Editar"
+     ContentTemplate="{DataTemplate views:EditarActividadView}"
+     Route="EditarActividad"/>
+
+
+    <ShellContent
+        Title="AgregarActividad"
+        ContentTemplate="{DataTemplate views:AgregarActividadView}"
+        Route="AgregarActividad"/>
+
+    <ShellContent 
+        Title="AgregarClase"
+        ContentTemplate="{DataTemplate views:AgregarClaseView}"
+    Route="AgregarClase" />
+
+   
+
+</Shell>

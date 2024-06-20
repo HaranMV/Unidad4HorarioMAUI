@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:HorarioMAUI.Models"
+             x:Class="HorarioMAUI.Views.ClaseView"
+             Background="White"
+             x:DataType="models:NotaModel"
+             >
+
+
+    <Border StrokeThickness="1" Stroke="Black" Margin="10,10,10,5" Background="#FEFFD1" MinimumHeightRequest="150" StrokeShape="RoundRectangle 20,20,0,40">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Style.Triggers>
+                    <DataTrigger TargetType="Border" Binding="{Binding Color}" Value="{x:Static models:Colores.Verde}">
+                        <Setter Property="Background" Value="#DCFFD1"></Setter>
+                    </DataTrigger>
+
+                    <DataTrigger TargetType="Border" Binding="{Binding Color}" Value="{x:Static models:Colores.Amarillo}">
+                        <Setter Property="Background" Value="#FEFFD1"></Setter>
+                    </DataTrigger>
+
+
+                    <DataTrigger TargetType="Border" Binding="{Binding Color}" Value="{x:Static models:Colores.Azul}">
+                        <Setter Property="Background" Value="#D1E1FF"></Setter>
+                    </DataTrigger>
+
+
+                    <DataTrigger TargetType="Border" Binding="{Binding Color}" Value="{x:Static models:Colores.Rosa}">
+                        <Setter Property="Background" Value="#FFD1F8"></Setter>
+                    </DataTrigger>
+
+
+                    <DataTrigger TargetType="Border" Binding="{Binding Color}" Value="{x:Static models:Colores.Rojo}">
+                        <Setter Property="Background" Value="#FFD1D1"></Setter>
+                    </DataTrigger>
+
+
+                    <DataTrigger TargetType="Border" Binding="{Binding Color}" Value="{x:Static models:Colores.Aqua}">
+                        <Setter Property="Background" Value="#D1F5FF"></Setter>
+                    </DataTrigger>
+
+
+                    <DataTrigger TargetType="Border" Binding="{Binding Color}" Value="{x:Static models:Colores.Naranja}">
+                        <Setter Property="Background" Value="#FEFFD1"></Setter>
+                    </DataTrigger>
+
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+        
+        
+        <VerticalStackLayout Margin="15,10,20,20">
+        <Label HorizontalTextAlignment="Center" Margin="0,0,0,5" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" Text="{Binding Nombre }"></Label>
+        <Label FontSize="15" Margin="0,5,0,5" TextColor="Black" HorizontalOptions="Center" Text="{Binding NombreMaestro}">
+                <Label.Style>
+                    <Style TargetType="Label">
+                        <Setter Property="IsVisible" Value="Visible"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding NombreMaestro}" Value="">
+                                <Setter Property="IsVisible" Value="Collapse"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+        </Label>
+
+            <Label FontSize="15" TextColor="Black" HorizontalOptions="Center" Text="{Binding Aula}">
+                <Label.Style>
+                    <Style TargetType="Label">
+                        <Setter Property="IsVisible" Value="Visible"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding Aula}" Value="">
+                                <Setter Property="IsVisible" Value="Collapse"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+           
+            <Label HorizontalOptions="Center" TextColor="Black" Margin="0,7.5,7.5,5" Text="{Binding Descripcion}">
+                <Label.Style>
+                    <Style TargetType="Label">
+                        <Setter Property="IsVisible" Value="Visible"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding Descripcion}" Value="">
+                                <Setter Property="IsVisible" Value="Collapse"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+            
+            <FlexLayout HorizontalOptions="Start" Margin="10,15,10,0">
+                <Label FontSize="20" FontAttributes="Bold" TextColor="Black">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span FontAttributes="Bold" TextColor="Black" FontSize="20" Text="{Binding HoraInicio}"></Span>
+                            <Span FontAttributes="Bold" TextColor="Black" FontSize="20" Text=":00"></Span>
+                            <Span FontAttributes="Bold" TextColor="Black" FontSize="20"  Text=" ⬌" ></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                    <Label FontSize="20" FontAttributes="Bold" TextColor="Black">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span FontAttributes="Bold" TextColor="Black" FontSize="20" Text=" " ></Span>
+                            <Span FontAttributes="Bold" TextColor="Black" FontSize="20" Text="{Binding HoraFin}"></Span>
+                            <Span FontAttributes="Bold" TextColor="Black" FontSize="20" Text=":00"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </FlexLayout>
+        </VerticalStackLayout>
+    </Border>
+</ContentView>

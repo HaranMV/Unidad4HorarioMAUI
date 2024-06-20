@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmoldes="clr-namespace:HorarioMAUI.ViewModels"
+             xmlns:models="clr-namespace:HorarioMAUI.Models"
+             Background="White"
+             Shell.BackgroundColor="#F9FF9C"
+             Shell.TitleColor="Black"
+             x:Class="HorarioMAUI.Views.EliminarClaseView"
+             Title="Eliminar clase">
+    
+    <ContentPage.Resources>
+        <Style TargetType="Border">
+            <Setter Property="Stroke" Value="Black"></Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Margin="10">
+
+            <Label FontAttributes="Bold" Text="Nombre de la asignatura:" TextColor="Black" Margin="5" ></Label>
+            <Border >
+                <Entry IsReadOnly="True" Background="#FDFDF0" TextColor="Black" Text="{Binding Clase.NombreAsignatura}"></Entry>
+            </Border>
+            <Label FontAttributes="Bold" Text="Nombre del maestro:" TextColor="Black" Margin="5" ></Label>
+            <Border>
+                <Entry IsReadOnly="True" Background="#FDFDF0" TextColor="Black" Text="{Binding Clase.NombreMaestro}"></Entry>
+            </Border>
+
+            <Label FontAttributes="Bold" Text="Aula:" TextColor="Black" Margin="5" ></Label>
+            <Border>
+                <Entry IsReadOnly="True" Background="#FDFDF0" TextColor="Black" Text="{Binding Clase.Aula}"></Entry>
+            </Border>
+
+            <Label FontAttributes="Bold"  Text="Hora Inicio:" TextColor="Black" Margin="5" ></Label>
+            <Border>
+                <Entry IsReadOnly="True" Keyboard="Numeric" Background="#FDFDF0" TextColor="Black" Text="{Binding Clase.HoraInicio}"></Entry>
+            </Border>
+
+
+            <Label FontAttributes="Bold" Text="Hora Fin :" TextColor="Black" Margin="5" ></Label>
+            <Border>
+                <Entry IsReadOnly="True" Keyboard="Numeric" Background="#FDFDF0" TextColor="Black" Text="{Binding Clase.HoraFin}"></Entry>
+            </Border>
+
+            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" Text="{Binding Error}" TextColor="Red" Margin="5" ></Label>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="10">
+                <Button Command="{Binding EliminarClaseCommand }" Text="Eliminar" Background="#E73636" TextColor="White" Margin="5" WidthRequest="100"></Button>
+                <Button Command="{Binding CancelarCommmad}" Text="Cancelar" Background="LightGray" TextColor="Black" Margin="5" WidthRequest="100"></Button>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

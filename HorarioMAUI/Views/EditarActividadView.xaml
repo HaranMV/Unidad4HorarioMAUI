@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HorarioMAUI.Views.EditarActividadView"
+             xmlns:viewmodels="clr-namespace:HorarioMAUI.ViewModels"
+             Background="White"
+              Shell.BackgroundColor="#F9FF9C"
+ Shell.TitleColor="#222020"
+             Title="Editar actividad">
+    <ScrollView>
+        <VerticalStackLayout Margin="10">
+
+        <Label FontAttributes="Bold" Text="Nombre de la actividad:" TextColor="Black" Margin="5" ></Label>
+        <Border Stroke="Black">
+            <Entry Background="#FDFDF0" TextColor="Black" Text="{Binding Actividad.NombreActividad}"></Entry>
+        </Border>
+        <Label FontAttributes="Bold" Text="Descripción:" TextColor="Black" Margin="5" ></Label>
+        <Border Stroke="Black">
+            <Entry Background="#FDFDF0" TextColor="Black" Text="{Binding Actividad.Descripcion}"></Entry>
+        </Border>
+
+        <Label FontAttributes="Bold" Text="Hora Inicio:" TextColor="Black" Margin="5" ></Label>
+        <Border Stroke="Black">
+            <Entry Background="#FDFDF0" TextColor="Black" Text="{Binding Actividad.HoraInicio}"></Entry>
+        </Border>
+        
+        <Label FontAttributes="Bold" Text="Hora Fin :" TextColor="Black" Margin="5" ></Label>
+        <Border Stroke="Black">
+            <Entry Background="#FDFDF0" TextColor="Black" Text="{Binding Actividad.HoraFin}"></Entry>
+        </Border>
+
+        <Label HorizontalTextAlignment="Center" FontAttributes="Bold" Text="{Binding Error}" TextColor="#E73636" Margin="5" ></Label>
+        
+        <HorizontalStackLayout HorizontalOptions="Center" Margin="10">
+            <Button Command="{Binding EditarActividadCommand}" Text="Editar" Background="#3646E7" TextColor="White" Margin="5" WidthRequest="100"></Button>
+            <Button Command="{Binding CancelarCommmad}" Text="Cancelar" Background="LightGray" TextColor="Black" Margin="5" WidthRequest="100"></Button>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
